@@ -1,0 +1,134 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "alphamissense_web",
+    "version": "0.2.2"
+  },
+  "servers": [{
+        "url": "https://api-dev.amdb.co.uk"
+      }],
+  "paths": {
+    "/v1/variant": {
+      "get": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Get variant at position",
+        "description": "Returns variant at a given chromosome, position, reference allele and alternate allele and genome",
+        "operationId": "get_variant",
+        "parameters": [
+          {
+            "name": "chrom",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pos",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ref_allele",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "alt_allele",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "genome",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlphamissenseResult",
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AlphamissenseResult": {
+        "type": "object",
+        "required": [
+          "alt",
+          "am_class",
+          "am_pathogenicity",
+          "chrom",
+          "genome",
+          "pos",
+          "protein_variant",
+          "ref",
+          "transcript_id",
+          "uniprot_id"
+        ],
+        "properties": {
+          "chrom": {
+            "type": "string"
+          },
+          "pos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "genome": {
+            "type": "string"
+          },
+          "uniprot_id": {
+            "type": "string"
+          },
+          "transcript_id": {
+            "type": "string"
+          },
+          "protein_variant": {
+            "type": "string"
+          },
+          "am_pathogenicity": {
+            "type": "number",
+            "format": "double"
+          },
+          "am_class": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
