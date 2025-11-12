@@ -12,12 +12,16 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18",
+    "@scalar/api-reference": "^1.39.3",
+    "swagger-ui": "^5.30.2",
+    "swagger-ui-dist": "^5.30.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^18.17.17",
+    "@types/swagger-ui": "^5.21.1",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.16",
